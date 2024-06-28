@@ -1,0 +1,33 @@
+"use client";
+
+import CardSmsSent from '@/components/CardSmsSent';
+import CardTotalClicks from '@/components/CardTotalClicks';
+import CardTotalSubscribersSummary from '@/components/CardTotalSubscribersSummary';
+import CardTotalUnsubscribers from '@/components/CardTotalUnsubscribers';
+import RecentUsersList from '@/components/RecentUsersList';
+import StatsChart from '@/components/charts/StatsChart';
+
+const Dashboard = () => {
+
+  return (
+    <>
+      <h1 className="font-bold text-black text-4xl">Dashboard</h1>
+      <div className='max-w-full flex flex-row align-top justify-start w-full pb-2 mt-6 gap-3.5 overflow-x-auto lg:overflow-x-hidden'>
+        <CardTotalSubscribersSummary />
+        <CardSmsSent />
+        <CardTotalUnsubscribers />
+        <CardTotalClicks />
+      </div>
+      <div className="w-full flex flex-col xl:flex-row mt-5 gap-5">
+        <div className="w-full xl:w-1/2 flex flex-col flex-grow gap-5 bg-white rounded-sm">
+          <StatsChart />
+        </div>
+        <div className="w-full xl:w-1/2 flex flex-col flex-grow gap-5 bg-white">
+          <RecentUsersList />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Dashboard;

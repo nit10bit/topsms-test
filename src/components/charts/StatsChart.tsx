@@ -1,0 +1,81 @@
+"use client";
+
+import React, { useState } from 'react';
+import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectGroup, SelectLabel } from '@/components/ui/select';
+import StatsTooltip from '@/components/charts/StatsTooltip';
+import StatsLegend from '@/components/charts/StatsLegend';
+import { useData } from '@/context/DataContext';
+
+const StatsChart = () => {
+  const { accountData } = useData();
+  const [filter, setFilter] = useState('day');
+  const [chartData, setChartData] = useState(accountData.dayData);
+
+  const handleFilterChange = (value: string) => {
+    setFilter(value);
+    switch (value) {
+      case 'day':
+        setChartData(accountData.dayData);
+        break;
+      case 'week':
+        setChartData(accountData.weekData);
+        break;
+      case 'month':
+        setChartData(accountData.monthData);
+        break;
+      default:
+        setChartData(accountData.dayData);
+        break;
+    }
+  };
+
+  return (
+    <div className="w-full flex flex-col relative p-5">
+      <div className="w-full flex flex-row items-center justify-between mb-6">
+        <h3 className="font-medium text-lg">Overview</h3>
+        <Select onValueChange={handleFilterChange} value={filter}>
+          <SelectTrigger className="w-40 px-4 py-2 text-sm text-black font-medium bg-white rounded-xs">
+            <span>Filter: {filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
+          </SelectTrigger>
+          <SelectContent>
+            <SelectGroup>
+              <SelectLabel>Filter by</SelectLabel>
+              <SelectItem value="day">Day</SelectItem>
+              <SelectItem value="week">Week</SelectItem>
+              <SelectItem value="month">Month</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+      </div>
+      <div className="w-full h-96">
+        <ResponsiveContainer width="100%">
+          <BarChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis
+              dataKey="name"
+              stroke="#888888"
+              fontSize={12}
+              tickLine={false}
+              axisLine={false}
+            />
+            <YAxis
+              stroke="#888888"
+              fontSize={12}
+              tickLine={false}
+              axisLine={false}
+              tickFormatter={(value) => `${value}`}
+            />
+            <Bar dataKey="sms" stackId="a" fill="#D7F155" />
+            <Bar dataKey="subscribe" stackId="a" fill="#B3C947" />
+            <Bar dataKey="unsubscribe" stackId="a" fill="#8FA139" radius={[6, 6, 0, 0]} />
+            <Tooltip content={<StatsTooltip />} cursor={{ fill: 'rgba(0,0,0,.05)' }} />
+            <Legend content={<StatsLegend />} />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
+    </div>
+  );
+};
+
+export default StatsChart;
