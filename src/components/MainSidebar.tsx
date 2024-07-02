@@ -4,14 +4,11 @@ import {
   Send,
   ChevronLeft,
   ChevronRight,
-  Menu,
   BarChart3,
   MousePointerClick,
   List,
   FileLineChart,
   BellRing,
-  Phone,
-  Mail,
   MessageCircleQuestion,
   Settings
 } from 'lucide-react';
@@ -35,12 +32,8 @@ const MainSidebar = () => {
     }
   };
 
-  const toggleDrawer = () => {
-    setIsDrawerOpen(!isDrawerOpen);
-  };
-
-  const closeDrawer = () => {
-    setIsDrawerOpen(false);
+  const openDrawer = () => {
+    setIsDrawerOpen(true);
   };
 
   return (
@@ -71,7 +64,7 @@ const MainSidebar = () => {
         </button>
       </div>
       
-      <div className="flex flex-col xl:hidden w-16 p-2 gap-3 items-center bg-white border border-border-light rounded-xs transition-width duration-500" onClick={toggleDrawer}>
+      <div className="flex flex-col xl:hidden w-16 p-2 gap-3 items-center bg-white border border-border-light rounded-xs transition-width duration-500" onClick={openDrawer}>
         <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs">
           <Send size={20} />
         </button>
@@ -80,7 +73,7 @@ const MainSidebar = () => {
         <List size={24} className="flex-shrink-0" />
         <FileLineChart size={24} className="flex-shrink-0" />
         <BellRing size={24} className="flex-shrink-0" />
-        <Drawer open={isDrawerOpen} onClose={closeDrawer} direction="left">
+        <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} direction="left">
           <DrawerContent className="bg-white h-5/6">
             <div className={`w-full h-full flex flex-col p-2 xl:p-6 bg-white text-black rounded-sm overflow-hidden`}>
               <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs">
