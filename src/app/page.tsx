@@ -12,7 +12,7 @@ const Dashboard = () => {
   return (
     <>
       <h1 className="font-bold text-black text-4xl">Dashboard</h1>
-      <div className='max-w-full flex flex-row align-top justify-start w-full pb-2 mt-6 gap-3.5 overflow-x-auto lg:overflow-x-hidden'>
+      <div className='max-w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 align-top justify-start w-full pb-2 mt-6 gap-3.5 overflow-x-auto lg:overflow-x-hidden'>
         <CardTotalSubscribersSummary />
         <CardSmsSent />
         <CardTotalUnsubscribers />

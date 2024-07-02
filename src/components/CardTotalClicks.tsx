@@ -11,7 +11,7 @@ const CardTotalClicks = () => {
   const isPositiveChange = percentageChange >= 0;
 
   return (
-    <div className="w-card xl:w-3/12 flex-shrink-0 xl:flex-shrink bg-white p-4 border border-border rounded-sm">
+    <div className="bg-white p-4 border border-border rounded-sm">
       <div className="flex justify-between items-center">
         <h2 className="text-black font-bold text-xl">Total Clicks</h2>
         <div className="flex items-center justify-center bg-gray-50 rounded-xs p-2">

@@ -33,7 +33,7 @@ const StatsChart = () => {
   return (
     <div className="w-full flex flex-col relative p-5">
       <div className="w-full flex flex-row items-center justify-between mb-6">
-        <h3 className="font-medium text-lg">Overview</h3>
+        <h3 className="font-semibold text-lg">Stats</h3>
         <Select onValueChange={handleFilterChange} value={filter}>
           <SelectTrigger className="w-40 px-4 py-2 text-sm text-black font-medium bg-white rounded-xs">
             <span>Filter: {filter.charAt(0).toUpperCase() + filter.slice(1)}</span>
@@ -50,8 +50,8 @@ const StatsChart = () => {
       </div>
       <div className="w-full h-96">
         <ResponsiveContainer width="100%">
-          <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" />
+          <BarChart data={chartData} barSize={35}>
+            <CartesianGrid vertical={false} stroke="#cecece" strokeWidth={1}  strokeDasharray="10 6" />
             <XAxis
               dataKey="name"
               stroke="#888888"
