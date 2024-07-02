@@ -62,7 +62,7 @@ const MainSideMenu: React.FC<MainSideMenuProps> = ({ collapsed }) => {
             ref={dropdownRef}
             className={`overflow-hidden transition-max-height duration-500 ease-in-out`}
           >
-            <div className="flex flex-col space-y-1 mt-2 mb-4 pl-4">
+            <div className="flex flex-col space-y-1 mt-2 pl-4">
               <Link href="#" className="flex flex-row items-end">
                 <Image src="bg-list-junction.svg" alt="|" width={13} height={42} className="flex-shirink-0 mt-[-13px] mb-[14px]" />
                 <span className="flex-grow py-2 px-3 rounded hover:bg-gray-50 text-xs text-gray-500 hover:text-black font-medium hover:font-semibold transition duration-200">Lorem Ipsum</span>
