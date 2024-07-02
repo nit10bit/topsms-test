@@ -15,6 +15,7 @@ import {
 import { useState } from 'react';
 import MainSideMenu from '@/components/MainSideMenu';
 import SettingsSideMenu from '@/components/SettingsSideMenu';
+import { DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 import { Drawer, DrawerContent } from '@/components/ui/drawer';
 
 const MainSidebar = () => {
@@ -68,6 +69,7 @@ const MainSidebar = () => {
         <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs">
           <Send size={20} />
         </button>
+        <DropdownMenuSeparator className="w-full" />
         <BarChart3 size={24} className="flex-shrink-0" />
         <MousePointerClick size={24} className="flex-shrink-0" />
         <List size={24} className="flex-shrink-0" />
@@ -85,6 +87,7 @@ const MainSidebar = () => {
           </DrawerContent>
         </Drawer>
         <div className="flex flex-col gap-3 mt-auto">
+          <DropdownMenuSeparator />
           <MessageCircleQuestion size={24} />
           <Settings size={24} />
         </div>
