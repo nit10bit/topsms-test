@@ -22,7 +22,7 @@ const Dashboard = () => {
         <div className="w-full xl:w-1/2 flex flex-col flex-grow gap-5 bg-white rounded-sm">
           <StatsChart />
         </div>
-        <div className="w-full xl:w-1/2 flex flex-col flex-grow gap-5 bg-white">
+        <div className="w-full xl:w-1/2 flex flex-col flex-grow gap-5 bg-white rounded-sm">
           <RecentUsersList />
         </div>
       </div>

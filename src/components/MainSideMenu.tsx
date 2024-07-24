@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   BarChart3,
   BellRing,
@@ -21,6 +22,7 @@ interface MainSideMenuProps {
 const MainSideMenu: React.FC<MainSideMenuProps> = ({ collapsed }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   const handleToggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -43,9 +45,14 @@ const MainSideMenu: React.FC<MainSideMenuProps> = ({ collapsed }) => {
   return (
     <div className="flex flex-col mt-3.5 bg-white text-black">
       <DropdownMenuSeparator />
-      {!collapsed && ( <span className="text-xs text-gray-500 mt-3 mb-4 px-3">SETTINGS</span> ) }
+      {!collapsed && (
+        <span className="text-xs text-gray-500 mt-3 mb-4 px-3">SETTINGS</span>
+      )}
       <nav className="flex flex-col mt-2 space-y-2">
-        <Link href="/" className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded bg-gray-100 transition duration-200 whitespace-nowrap overflow-hidden`}>
+        <Link
+          href="/"
+          className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded ${pathname === '/' ? 'bg-gray-100' : ''} transition duration-200 whitespace-nowrap overflow-hidden`}
+        >
           <BarChart3 size={24} className="flex-shrink-0" />
           Dashboard
         </Link>
@@ -82,15 +89,24 @@ const MainSideMenu: React.FC<MainSideMenuProps> = ({ collapsed }) => {
             </div>
           </div>
         </div>
-        <Link href="#" className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded hover:bg-gray-100 transition duration-200 whitespace-nowrap overflow-hidden`}>
-            <List size={24} className="flex-shrink-0" />
-            Contacts
+        <Link
+          href="#"
+          className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded ${pathname === '/contacts' ? 'bg-gray-100' : ''} transition duration-200 whitespace-nowrap overflow-hidden`}
+        >
+          <List size={24} className="flex-shrink-0" />
+          Contacts
         </Link>
-        <Link href="/reports" className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded hover:bg-gray-100 transition duration-200 whitespace-nowrap overflow-hidden`}>
-            <FileLineChart size={24} className="flex-shrink-0" />
-            Reports
+        <Link
+          href="/reports"
+          className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded ${pathname === '/reports' ? 'bg-gray-100' : ''} transition duration-200 whitespace-nowrap overflow-hidden`}
+        >
+          <FileLineChart size={24} className="flex-shrink-0" />
+          Reports
         </Link>
-        <Link href="#" className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded hover:bg-gray-100 transition duration-200 whitespace-nowrap overflow-hidden`}>
+        <Link
+          href="#"
+          className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded ${pathname === '/notifications' ? 'bg-gray-100' : ''} transition duration-200 whitespace-nowrap overflow-hidden`}
+        >
           <BellRing size={24} className="flex-shrink-0" />
           Notifications
         </Link>
