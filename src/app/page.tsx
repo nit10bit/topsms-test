@@ -5,7 +5,7 @@ import CardTotalClicks from '@/components/CardTotalClicks';
 import CardTotalSubscribersSummary from '@/components/CardTotalSubscribersSummary';
 import CardTotalUnsubscribers from '@/components/CardTotalUnsubscribers';
 import RecentUsersList from '@/components/RecentUsersList';
-import StatsChart from '@/components/charts/StatsChart';
+import StatsChart from '@/components/charts/stats/Chart';
 
 const Dashboard = () => {
 

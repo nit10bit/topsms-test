@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectGroup, SelectLabel } from '@/components/ui/select';
-import StatsTooltip from '@/components/charts/StatsTooltip';
-import StatsLegend from '@/components/charts/StatsLegend';
+import StatsTooltip from '@/components/charts/stats/Tooltip';
+import StatsLegend from '@/components/charts/stats/Legend';
 import { useData } from '@/context/DataContext';
 import resolveConfig from 'tailwindcss/resolveConfig';
 import config from '@root/tailwind.config';

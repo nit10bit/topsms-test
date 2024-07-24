@@ -86,7 +86,7 @@ const MainSideMenu: React.FC<MainSideMenuProps> = ({ collapsed }) => {
             <List size={24} className="flex-shrink-0" />
             Contacts
         </Link>
-        <Link href="#" className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded hover:bg-gray-100 transition duration-200 whitespace-nowrap overflow-hidden`}>
+        <Link href="/reports" className={`flex justify-start items-center gap-5 ${collapsed ? 'p-2.5' : 'py-2.5 px-5'} font-semibold text-sm text-black rounded hover:bg-gray-100 transition duration-200 whitespace-nowrap overflow-hidden`}>
             <FileLineChart size={24} className="flex-shrink-0" />
             Reports
         </Link>
