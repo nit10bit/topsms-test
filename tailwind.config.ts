@@ -42,6 +42,16 @@ const config = {
           DEFAULT: "rgba(215, 241, 85, 1)",
           light: "rgba(215, 241, 85, 0.3)",
         },
+        mainBlue: {
+          DEFAULT: "rgba(1, 102, 216, 1)",
+          secondary: "rgba(103, 163, 231, 1)",
+          tertiary: "rgba(204, 224, 247, 1)",
+        },
+        mainGreen: {
+          DEFAULT: "rgba(38, 116, 87, 1)",
+          secondary: "rgba(103, 163, 231, 1)",
+          tertiary: "rgba(234, 242, 239, 1)",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

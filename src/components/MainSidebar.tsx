@@ -45,12 +45,12 @@ const MainSidebar = () => {
       >
         <div className={`w-full flex flex-col p-2 xl:p-6 bg-white text-black rounded-sm overflow-hidden`}>
           {!collapsed ? (
-            <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs whitespace-nowrap overflow-hidden">
+            <button className="flex justify-center items-center gap-x-2.5 bg-mainBlue text-white text-sm font-medium p-2.5 rounded-xs whitespace-nowrap overflow-hidden">
               <Send size={20} className="flex-shrink-0" />
               Send SMS
             </button>
           ) : (
-            <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs">
+            <button className="flex justify-center items-center gap-x-2.5 bg-mainBlue text-white text-sm font-medium p-2.5 rounded-xs">
               <Send size={20} />
             </button>
           )}
@@ -66,7 +66,7 @@ const MainSidebar = () => {
       </div>
       
       <div className="flex flex-col xl:hidden w-16 p-2 gap-3 items-center bg-white border border-border-light rounded-xs transition-width duration-500" onClick={openDrawer}>
-        <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs">
+        <button className="flex justify-center items-center gap-x-2.5 bg-mainBlue text-white text-sm font-medium p-2.5 rounded-xs">
           <Send size={20} />
         </button>
         <DropdownMenuSeparator className="w-full" />
@@ -78,7 +78,7 @@ const MainSidebar = () => {
         <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} direction="left">
           <DrawerContent className="bg-white h-5/6">
             <div className={`w-full h-full flex flex-col p-2 xl:p-6 bg-white text-black rounded-sm overflow-hidden`}>
-              <button className="flex justify-center items-center gap-x-2.5 bg-limeGreen text-sm font-medium p-2.5 rounded-xs">
+              <button className="flex justify-center items-center gap-x-2.5 bg-mainBlue text-white text-sm font-medium p-2.5 rounded-xs">
                 <Send size={20} />
               </button>
               <MainSideMenu collapsed={false} />

@@ -3,6 +3,7 @@
 import { useData } from '@/context/DataContext';
 import AnimatedNumber from '@/components/ui/animated-number';
 import { UserMinus, ArrowDown } from 'lucide-react';
+import Image from 'next/image';
 
 const CardTotalUnsubscribers = () => {
   const { accountData } = useData();
@@ -13,8 +14,8 @@ const CardTotalUnsubscribers = () => {
     <div className="bg-white p-4 border border-border rounded-sm">
       <div className="flex justify-between items-center">
         <h2 className="text-black font-bold text-xl">Total Unsubscribers</h2>
-        <div className="flex items-center justify-center bg-gray-50 rounded-xs p-2">
-          <UserMinus size={16} color="#8C8C8C" />
+        <div className="flex items-center justify-center bg-mainBlue-tertiary rounded-xs p-2">
+          <Image src="/icon-users-minus.svg" alt="-" width={16} height={16} className="fill-black" />
         </div>
       </div>
       <div className="flex justify-between items-center mt-4">
