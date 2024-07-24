@@ -66,7 +66,7 @@ const mockData: DataContextType = {
     smsSent: 16789,
     smsSentLastMonth: 16000,
     totalUnsubscribers: 276,
-    totalUnsubscribersLastMonth: 262,
+    totalUnsubscribersLastMonth: 282,
     totalClicks: 700,
     totalClicksLastMonth: 485,
     subscriptionsByDay: [

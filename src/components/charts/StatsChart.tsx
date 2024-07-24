@@ -6,6 +6,13 @@ import { Select, SelectTrigger, SelectContent, SelectItem, SelectGroup, SelectLa
 import StatsTooltip from '@/components/charts/StatsTooltip';
 import StatsLegend from '@/components/charts/StatsLegend';
 import { useData } from '@/context/DataContext';
+import resolveConfig from 'tailwindcss/resolveConfig';
+import config from '@root/tailwind.config';
+
+const tailwind = resolveConfig(config);
+const colorInfo1 = tailwind.theme.colors.mainBlue.DEFAULT
+const colorInfo2 = tailwind.theme.colors.mainBlue.secondary
+const colorInfo3 = tailwind.theme.colors.mainBlue.tertiary
 
 const StatsChart = () => {
   const { accountData } = useData();
@@ -66,9 +73,9 @@ const StatsChart = () => {
               axisLine={false}
               tickFormatter={(value) => `${value}`}
             />
-            <Bar dataKey="sms" stackId="a" fill="#D7F155" />
-            <Bar dataKey="subscribe" stackId="a" fill="#B3C947" />
-            <Bar dataKey="unsubscribe" stackId="a" fill="#8FA139" radius={[6, 6, 0, 0]} />
+            <Bar dataKey="sms" stackId="a" fill={colorInfo1} />
+            <Bar dataKey="subscribe" stackId="a" fill={colorInfo2} />
+            <Bar dataKey="unsubscribe" stackId="a" fill={colorInfo3} radius={[6, 6, 0, 0]} />
             <Tooltip content={<StatsTooltip />} cursor={{ fill: 'rgba(0,0,0,.05)' }} />
             <Legend content={<StatsLegend />} />
           </BarChart>

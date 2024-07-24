@@ -2,13 +2,15 @@
 
 import { useData } from '@/context/DataContext';
 import AnimatedNumber from '@/components/ui/animated-number';
-import { UserMinus, ArrowDown } from 'lucide-react';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 import Image from 'next/image';
 
 const CardTotalUnsubscribers = () => {
   const { accountData } = useData();
   const totalUnsubscribers = accountData.totalUnsubscribers;
   const percentageChange = ((accountData.totalUnsubscribers - accountData.totalUnsubscribersLastMonth) / accountData.totalUnsubscribersLastMonth) * 100;
+  const isPositiveChange = percentageChange >= 0;
+  console.log('percentageChange ', percentageChange)
 
   return (
     <div className="bg-white p-4 border border-border rounded-sm">
@@ -22,10 +24,10 @@ const CardTotalUnsubscribers = () => {
         <span className="text-black font-medium text-4xl">
           <AnimatedNumber value={totalUnsubscribers} />
         </span>
-        <div className="flex items-center justify-between rounded-full py-1 px-2 bg-danger">
-          <ArrowDown size={12} color="#000000" />
-          <span className="ml-1 text-xs font-medium text-black">
-            -{percentageChange.toFixed(2)}%
+        <div className={`flex items-center justify-between rounded-full py-1 px-2 border ${isPositiveChange ? 'bg-mainGreen-tertiary border-mainGreen' : 'bg-danger border-danger-border'}`}>
+          {isPositiveChange ? <ArrowUp size={12} className="color-mainGreen stroke-mainGreen" /> : <ArrowDown size={12} className="stroke-danger-text" />}
+          <span className={`ml-1 text-xs font-medium ${isPositiveChange ? 'text-mainGreen' : 'text-danger-text'}`}>
+            {isPositiveChange ? '+' : ''}{percentageChange.toFixed(2)}%
           </span>
         </div>
       </div>

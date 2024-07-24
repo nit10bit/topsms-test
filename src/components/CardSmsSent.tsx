@@ -22,9 +22,9 @@ const CardSmsSent = () => {
         <span className="text-black font-medium text-4xl">
           <AnimatedNumber value={smsSent} />
         </span>
-        <div className={`flex items-center justify-between rounded-full py-1 px-2 ${isPositiveChange ? 'bg-mainGreen-tertiary' : 'bg-danger-border'}`}>
-          {isPositiveChange ? <ArrowUp size={12} className="color-mainGreen-tertiary" /> : <ArrowDown size={12} className="color-mainGreen-tertiary" />}
-          <span className="ml-1 text-xs font-medium text-black">
+        <div className={`flex items-center justify-between rounded-full py-1 px-2 border ${isPositiveChange ? 'bg-mainGreen-tertiary border-mainGreen' : 'bg-danger border-danger-border'}`}>
+          {isPositiveChange ? <ArrowUp size={12} className="color-mainGreen stroke-mainGreen" /> : <ArrowDown size={12} className="stroke-danger-text" />}
+          <span className={`ml-1 text-xs font-medium ${isPositiveChange ? 'text-mainGreen' : 'text-danger-text'}`}>
             {isPositiveChange ? '+' : ''}{percentageChange.toFixed(2)}%
           </span>
         </div>

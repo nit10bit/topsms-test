@@ -2,7 +2,7 @@
 
 import { useData } from '@/context/DataContext';
 import AnimatedNumber from '@/components/ui/animated-number';
-import { UserPlus, ArrowUp, ArrowDown } from 'lucide-react';
+import { ArrowUp, ArrowDown } from 'lucide-react';
 import Image from 'next/image';
 
 const CardTotalSubscribersSummary = () => {
@@ -23,9 +23,9 @@ const CardTotalSubscribersSummary = () => {
         <span className="text-black font-medium text-4xl">
           <AnimatedNumber value={totalSubscribers} />
         </span>
-        <div className={`flex items-center justify-between rounded-full py-1 px-2 ${isPositiveChange ? 'bg-success' : 'bg-danger-border'}`}>
-          {isPositiveChange ? <ArrowUp size={12} color="#000000" /> : <ArrowDown size={12} color="#000000" />}
-          <span className="ml-1 text-xs font-medium text-black">
+        <div className={`flex items-center justify-between rounded-full py-1 px-2 border ${isPositiveChange ? 'bg-mainGreen-tertiary border-mainGreen' : 'bg-danger border-danger-border'}`}>
+          {isPositiveChange ? <ArrowUp size={12} className="color-mainGreen stroke-mainGreen" /> : <ArrowDown size={12} className="stroke-danger-text" />}
+          <span className={`ml-1 text-xs font-medium ${isPositiveChange ? 'text-mainGreen' : 'text-danger-text'}`}>
             {isPositiveChange ? '+' : ''}{percentageChange.toFixed(2)}%
           </span>
         </div>
